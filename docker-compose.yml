@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always
+
+# If we need a database later, we can add it here.

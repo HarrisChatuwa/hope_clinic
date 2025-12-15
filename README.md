@@ -5,12 +5,13 @@ This is the repository for the Hope Family Clinic website.
 ## Project Structure
 
 - `web/`: Next.js application (Frontend).
-- `docker-compose.yml`: Docker orchestration for local development and deployment.
+- `docker-compose.yml`: Docker orchestration for local development.
+- `Dockerfile`: Production Dockerfile (for Render/cloud deployment).
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed.
-- [Node.js](https://nodejs.org/) (optional, if running without Docker).
+- [Node.js](https://nodejs.org/) 20+ (optional, if running without Docker).
 
 ## Getting Started
 
@@ -47,7 +48,17 @@ This is the repository for the Hope Family Clinic website.
 
 ## Deployment
 
-The application is containerized using Docker. To deploy:
+### Render.com
+
+1. Connect your GitHub repository to Render.
+2. Create a new **Web Service**.
+3. Render will automatically detect the `Dockerfile` in the root.
+4. Set the following:
+   - **Build Command:** (leave empty, Docker handles it)
+   - **Start Command:** (leave empty, Docker handles it)
+5. Deploy!
+
+### Docker (Self-hosted)
 
 1. Ensure Docker is installed on the server.
 2. Clone the repository.
@@ -57,7 +68,8 @@ The application is containerized using Docker. To deploy:
 
 ```
 .
-├── docker-compose.yml
+├── Dockerfile          # Production Dockerfile (for Render)
+├── docker-compose.yml  # Local development
 ├── README.md
 └── web/                # Next.js Application
     ├── public/         # Static assets
@@ -65,7 +77,7 @@ The application is containerized using Docker. To deploy:
     │   ├── app/        # App Router pages
     │   ├── components/ # Reusable components
     │   └── ...
-    ├── Dockerfile
+    ├── Dockerfile      # Alternative Dockerfile
     ├── next.config.ts
     └── ...
 ```

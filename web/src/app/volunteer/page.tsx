@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2 } from "lucide-react";
+import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2, Download, ArrowRight } from "lucide-react";
 
 export default function VolunteerPage() {
     return (
@@ -11,8 +11,8 @@ export default function VolunteerPage() {
                 subtitle="Make a lasting impact. We offer opportunities for medical and non-medical volunteers to serve our community."
                 imageSrc="/images/staff-1.jpg"
                 imageAlt="Volunteers at Hope Clinic"
-                ctaText="Apply Now"
-                ctaLink="mailto:volunteers@hopefamilyclinic.org"
+                ctaText="Download Application"
+                ctaLink="#application"
             />
 
             <section className="py-12 md:py-24">
@@ -36,26 +36,24 @@ export default function VolunteerPage() {
                     <div className="bg-muted/30 p-8 rounded-xl border">
                         <h3 className="text-2xl font-bold mb-4">Requirements</h3>
                         <ul className="list-disc list-inside space-y-3 text-muted-foreground mb-6">
-                            <li>Minimum commitment of 4 weeks.</li>
-                            <li>Basic proficiency in English (Chichewa is a plus).</li>
-                            <li><strong>Vaccinations:</strong> Yellow Fever, Hepatitis A/B, Tetanus.</li>
+                            <li>Minimum commitment of 4 weeks</li>
+                            <li>Basic proficiency in English (Chichewa is a plus)</li>
+                            <li><strong>Vaccinations:</strong> Yellow Fever, Hepatitis A/B, Tetanus</li>
+                            <li>Willingness to work in a busy clinic environment with limited resources</li>
+                            <li>Background check and reference letters for clinical roles</li>
                         </ul>
 
-                        <h3 className="text-xl font-bold mb-4">Application Steps</h3>
-                        <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-6">
-                            <li>Review roles below</li>
-                            <li>Complete online form</li>
-                            <li>Submit CV and two references</li>
-                            <li>Virtual interview</li>
-                            <li>Receive welcome packet</li>
-                            <li>Arrive in Malawi</li>
-                        </ol>
-
-                        <div className="mt-8">
-                            <Button asChild size="lg" className="w-full">
-                                <Link href="mailto:volunteers@hopefamilyclinic.org">Send Application Email</Link>
+                        <div className="mt-8" id="application">
+                            <Button asChild size="lg" className="w-full mb-3">
+                                <Link href="#" className="flex items-center justify-center gap-2">
+                                    <Download className="h-5 w-5" />
+                                    Download Application Form
+                                </Link>
                             </Button>
-                            <p className="text-xs text-center mt-2 text-muted-foreground">
+                            <Button asChild size="lg" variant="outline" className="w-full">
+                                <Link href="mailto:volunteers@hopefamilyclinic.org">Email Application</Link>
+                            </Button>
+                            <p className="text-xs text-center mt-3 text-muted-foreground">
                                 Contact: Josephine Mhango (Volunteer Coordinator)
                             </p>
                         </div>
@@ -64,7 +62,52 @@ export default function VolunteerPage() {
                 </div>
             </section>
 
-            <section className="py-12 md:py-24 bg-primary/5">
+            {/* Application Process */}
+            <section className="py-12 md:py-24 bg-muted/30">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-4">Application Process</h2>
+                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                        Follow these simple steps to join our volunteer team
+                    </p>
+
+                    <div className="max-w-4xl mx-auto">
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <ProcessStep
+                                number="1"
+                                title="Review & Apply"
+                                description="Review available roles and download the application form"
+                            />
+                            <ProcessStep
+                                number="2"
+                                title="Submit Documents"
+                                description="Complete form, submit CV and two references"
+                            />
+                            <ProcessStep
+                                number="3"
+                                title="Interview"
+                                description="Participate in a virtual interview with our team"
+                            />
+                            <ProcessStep
+                                number="4"
+                                title="Welcome Packet"
+                                description="Receive detailed information and preparation materials"
+                            />
+                            <ProcessStep
+                                number="5"
+                                title="Pre-Departure"
+                                description="Complete vaccinations and travel arrangements"
+                            />
+                            <ProcessStep
+                                number="6"
+                                title="Arrival"
+                                description="Arrive in Malawi and begin your volunteer journey"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-12 md:py-24">
                 <div className="container px-4 md:px-6 mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-4">Available Roles</h2>
                     <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -117,6 +160,18 @@ function BenefitItem({ icon, text }: { icon: React.ReactNode, text: string }) {
     )
 }
 
+function ProcessStep({ number, title, description }: { number: string, title: string, description: string }) {
+    return (
+        <div className="relative bg-background p-6 rounded-xl shadow-sm border">
+            <div className="absolute -top-4 left-6 h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                {number}
+            </div>
+            <h3 className="font-bold text-lg mb-2 mt-2">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
+        </div>
+    )
+}
+
 function RoleCard({ title, icon, description }: { title: string, icon: React.ReactNode, description: string }) {
     return (
         <div className="bg-background p-6 rounded-lg shadow-sm border hover:border-primary/50 transition-colors">
@@ -124,28 +179,6 @@ function RoleCard({ title, icon, description }: { title: string, icon: React.Rea
             <h3 className="font-bold text-lg mb-2">{title}</h3>
             <p className="text-sm text-muted-foreground">{description}</p>
         </div>
-    )
-}
-
-function UsersIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </svg>
     )
 }
 

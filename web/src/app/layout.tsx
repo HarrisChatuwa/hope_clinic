@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageTransition } from "@/components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,9 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hope Family Clinic | Compassionate Care",
-  description: "Providing accessible high-quality medical care for the people of Dowa District, Malawi.",
-  keywords: ["Clinic", "Health", "Malawi", "Dzaleka", "Refugee Camp", "Medical Care", "Hope Family Clinic"],
+  title: "Hope Family Clinic Limited",
+  description: "Compassionate Care for Every Life We Touch. Providing accessible high-quality medical care in Dzaleka Refugee Camp, Malawi.",
 };
 
 export default function RootLayout({
@@ -28,12 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <PageTransition>
+          <main>{children}</main>
+        </PageTransition>
         <Footer />
       </body>
     </html>

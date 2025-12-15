@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2, Download, Quote } from "lucide-react";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 
 export default function VolunteerPage() {
     return (
@@ -18,12 +19,14 @@ export default function VolunteerPage() {
             {/* Volunteer Voices Section */}
             <section className="py-12 md:py-24 bg-muted/30">
                 <div className="container px-4 md:px-6 mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-4">Volunteer Voices</h2>
-                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        Hear from volunteers who have made a difference at Hope Family Clinic
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-primary relative">
+                    <FadeIn className="text-center mb-12">
+                        <h2 className="text-3xl font-bold mb-4">Volunteer Voices</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            Hear from volunteers who have made a difference at Hope Family Clinic
+                        </p>
+                    </FadeIn>
+                    <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <StaggerItem className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-primary relative hover:shadow-lg transition-shadow">
                             <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/20" />
                             <p className="text-muted-foreground italic mb-6 relative z-10">
                                 "Volunteering here transformed my perspective on global health. Every day I saw the impact of small acts—like teaching hand-washing—save lives."
@@ -37,8 +40,8 @@ export default function VolunteerPage() {
                                     <p className="text-sm text-muted-foreground">Clinical Support Volunteer</p>
                                 </div>
                             </div>
-                        </div>
-                        <div className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-secondary relative">
+                        </StaggerItem>
+                        <StaggerItem className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-secondary relative hover:shadow-lg transition-shadow">
                             <Quote className="absolute top-4 right-4 h-8 w-8 text-secondary/20" />
                             <p className="text-muted-foreground italic mb-6 relative z-10">
                                 "Working with local health educators taught me as much as I taught them. The bonds formed in Dzaleka are unforgettable."
@@ -52,15 +55,15 @@ export default function VolunteerPage() {
                                     <p className="text-sm text-muted-foreground">Volunteer</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </StaggerItem>
+                    </StaggerContainer>
                 </div>
             </section>
 
             <section className="py-12 md:py-24">
                 <div className="container px-4 md:px-6 mx-auto grid gap-12 lg:grid-cols-2">
 
-                    <div>
+                    <FadeIn direction="left">
                         <h2 className="text-3xl font-bold mb-6 text-primary">Why Volunteer With Us?</h2>
                         <p className="text-lg text-muted-foreground mb-6">
                             Volunteering at Hope Family Clinic provides a unique opportunity to work in a challenging yet rewarding environment. You will gain hands-on experience, experience cultural exchange, and directly contribute to the well-being of the Dzaleka community.
@@ -73,9 +76,9 @@ export default function VolunteerPage() {
                             <BenefitItem icon={<CheckCircle2 className="h-5 w-5 text-secondary" />} text="On-site orientation" />
                             <BenefitItem icon={<CheckCircle2 className="h-5 w-5 text-secondary" />} text="Certificate of service" />
                         </ul>
-                    </div>
+                    </FadeIn>
 
-                    <div className="bg-muted/30 p-8 rounded-xl border">
+                    <FadeIn direction="right" delay={0.2} className="bg-muted/30 p-8 rounded-xl border">
                         <h3 className="text-2xl font-bold mb-4">Requirements</h3>
                         <ul className="list-disc list-inside space-y-3 text-muted-foreground mb-6">
                             <li>Minimum commitment of 4 weeks</li>
@@ -99,7 +102,7 @@ export default function VolunteerPage() {
                                 Contact: Josephine Mhango (Volunteer Coordinator)
                             </p>
                         </div>
-                    </div>
+                    </FadeIn>
 
                 </div>
             </section>
@@ -107,86 +110,114 @@ export default function VolunteerPage() {
             {/* Application Process */}
             <section className="py-12 md:py-24 bg-muted/30">
                 <div className="container px-4 md:px-6 mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-4">Application Process</h2>
-                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        Follow these simple steps to join our volunteer team
-                    </p>
+                    <FadeIn className="text-center mb-12">
+                        <h2 className="text-3xl font-bold mb-4">Application Process</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            Follow these simple steps to join our volunteer team
+                        </p>
+                    </FadeIn>
 
-                    <div className="max-w-4xl mx-auto">
+                    <StaggerContainer className="max-w-4xl mx-auto">
                         <div className="grid md:grid-cols-3 gap-6">
-                            <ProcessStep
-                                number="1"
-                                title="Review & Apply"
-                                description="Review available roles and download the application form"
-                            />
-                            <ProcessStep
-                                number="2"
-                                title="Submit Documents"
-                                description="Complete form, submit CV and two references"
-                            />
-                            <ProcessStep
-                                number="3"
-                                title="Interview"
-                                description="Participate in a virtual interview with our team"
-                            />
-                            <ProcessStep
-                                number="4"
-                                title="Welcome Packet"
-                                description="Receive detailed information and preparation materials"
-                            />
-                            <ProcessStep
-                                number="5"
-                                title="Pre-Departure"
-                                description="Complete vaccinations and travel arrangements"
-                            />
-                            <ProcessStep
-                                number="6"
-                                title="Arrival"
-                                description="Arrive in Malawi and begin your volunteer journey"
-                            />
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="1"
+                                    title="Review & Apply"
+                                    description="Review available roles and download the application form"
+                                />
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="2"
+                                    title="Submit Documents"
+                                    description="Complete form, submit CV and two references"
+                                />
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="3"
+                                    title="Interview"
+                                    description="Participate in a virtual interview with our team"
+                                />
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="4"
+                                    title="Welcome Packet"
+                                    description="Receive detailed information and preparation materials"
+                                />
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="5"
+                                    title="Pre-Departure"
+                                    description="Complete vaccinations and travel arrangements"
+                                />
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ProcessStep
+                                    number="6"
+                                    title="Arrival"
+                                    description="Arrive in Malawi and begin your volunteer journey"
+                                />
+                            </StaggerItem>
                         </div>
-                    </div>
+                    </StaggerContainer>
                 </div>
             </section>
 
             <section className="py-12 md:py-24">
                 <div className="container px-4 md:px-6 mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-4">Available Roles</h2>
-                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        We welcome volunteers with diverse skills and backgrounds. Find the role that matches your expertise.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <RoleCard
-                            title="Clinical Support Volunteer"
-                            icon={<Stethoscope />}
-                            description="Assist nurses/doctors with intake and assessments."
-                        />
-                        <RoleCard
-                            title="Community Health Educator"
-                            icon={<Megaphone />}
-                            description="Lead workshops and door-to-door outreach."
-                        />
-                        <RoleCard
-                            title="Maternal & Child Health Assistant"
-                            icon={<BabyIcon />}
-                            description="Support prenatal clinics and monitor growth metrics."
-                        />
-                        <RoleCard
-                            title="Logistics & Supply Coordinator"
-                            icon={<PackageIcon />}
-                            description="Manage inventory and track supplies."
-                        />
-                        <RoleCard
-                            title="Administration & Fundraising Assistant"
-                            icon={<PieChartIcon />}
-                            description="Grant proposals and donor databases."
-                        />
-                        <RoleCard
-                            title="Solar & Facilities Volunteer"
-                            icon={<Wrench />}
-                            description="Maintain solar power equipment and clinic repairs."
-                        />
-                    </div>
+                    <FadeIn className="text-center mb-12">
+                        <h2 className="text-3xl font-bold mb-4">Available Roles</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            We welcome volunteers with diverse skills and backgrounds. Find the role that matches your expertise.
+                        </p>
+                    </FadeIn>
+                    <StaggerContainer className="grid md:grid-cols-3 gap-6">
+                        <StaggerItem>
+                            <RoleCard
+                                title="Clinical Support Volunteer"
+                                icon={<Stethoscope />}
+                                description="Assist nurses/doctors with intake and assessments."
+                            />
+                        </StaggerItem>
+                        <StaggerItem>
+                            <RoleCard
+                                title="Community Health Educator"
+                                icon={<Megaphone />}
+                                description="Lead workshops and door-to-door outreach."
+                            />
+                        </StaggerItem>
+                        <StaggerItem>
+                            <RoleCard
+                                title="Maternal & Child Health Assistant"
+                                icon={<BabyIcon />}
+                                description="Support prenatal clinics and monitor growth metrics."
+                            />
+                        </StaggerItem>
+                        <StaggerItem>
+                            <RoleCard
+                                title="Logistics & Supply Coordinator"
+                                icon={<PackageIcon />}
+                                description="Manage inventory and track supplies."
+                            />
+                        </StaggerItem>
+                        <StaggerItem>
+                            <RoleCard
+                                title="Administration & Fundraising Assistant"
+                                icon={<PieChartIcon />}
+                                description="Grant proposals and donor databases."
+                            />
+                        </StaggerItem>
+                        <StaggerItem>
+                            <RoleCard
+                                title="Solar & Facilities Volunteer"
+                                icon={<Wrench />}
+                                description="Maintain solar power equipment and clinic repairs."
+                            />
+                        </StaggerItem>
+                    </StaggerContainer>
                 </div>
             </section>
         </div>
@@ -195,7 +226,7 @@ export default function VolunteerPage() {
 
 function BenefitItem({ icon, text }: { icon: React.ReactNode, text: string }) {
     return (
-        <li className="flex items-center gap-3 p-3 bg-background rounded-lg shadow-sm">
+        <li className="flex items-center gap-3 p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
             {icon}
             <span className="text-sm font-medium">{text}</span>
         </li>
@@ -204,7 +235,7 @@ function BenefitItem({ icon, text }: { icon: React.ReactNode, text: string }) {
 
 function ProcessStep({ number, title, description }: { number: string, title: string, description: string }) {
     return (
-        <div className="relative bg-background p-6 rounded-xl shadow-sm border">
+        <div className="relative bg-background p-6 rounded-xl shadow-sm border hover:shadow-lg hover:scale-105 transition-all">
             <div className="absolute -top-4 left-6 h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
                 {number}
             </div>
@@ -216,7 +247,7 @@ function ProcessStep({ number, title, description }: { number: string, title: st
 
 function RoleCard({ title, icon, description }: { title: string, icon: React.ReactNode, description: string }) {
     return (
-        <div className="bg-background p-6 rounded-lg shadow-sm border hover:border-primary/50 transition-colors">
+        <div className="bg-background p-6 rounded-lg shadow-sm border hover:border-primary/50 hover:shadow-lg hover:scale-105 transition-all">
             <div className="mb-4 text-primary h-8 w-8 [&>svg]:h-8 [&>svg]:w-8">{icon}</div>
             <h3 className="font-bold text-lg mb-2">{title}</h3>
             <p className="text-sm text-muted-foreground">{description}</p>

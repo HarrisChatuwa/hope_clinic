@@ -4,6 +4,9 @@ import Link from "next/link";
 import { CreditCard, Landmark, Smartphone, Package, Shield, Heart, Calendar, Handshake, TrendingUp } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/Animations";
 import { FAQ } from "@/components/FAQ";
+import { activeCampaigns } from "@/data/campaigns";
+import { CampaignCard } from "@/components/DonationTracker/CampaignCard";
+import { ImpactCounter } from "@/components/DonationTracker/ImpactCounter";
 
 export default function DonatePage() {
     return (
@@ -40,6 +43,45 @@ export default function DonatePage() {
                                 </div>
                             </div>
                         </ScaleIn>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* Active Campaigns Section */}
+            <section className="py-12 md:py-24 bg-muted/30">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <FadeIn className="text-center mb-12">
+                        <h2 className="text-3xl font-bold mb-4">Active Fundraising Campaigns</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            Help us reach our goals and make a lasting impact. Every contribution brings us closer to better healthcare for our community.
+                        </p>
+                    </FadeIn>
+
+                    <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {activeCampaigns.map((campaign) => (
+                            <StaggerItem key={campaign.id}>
+                                <CampaignCard campaign={campaign} />
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
+
+                    {/* Overall Stats */}
+                    <FadeIn delay={0.3} className="mt-12 text-center">
+                        <div className="inline-block p-8 bg-background rounded-xl shadow-sm border">
+                            <p className="text-muted-foreground mb-2">Total Raised Across All Campaigns</p>
+                            <div className="flex items-center justify-center gap-2">
+                                <ImpactCounter
+                                    value={activeCampaigns.reduce((sum, c) => sum + c.raised, 0)}
+                                    className="text-4xl text-primary"
+                                />
+                                <span className="text-2xl text-muted-foreground">
+                                    / ${activeCampaigns.reduce((sum, c) => sum + c.goal, 0).toLocaleString()}
+                                </span>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-2">
+                                {activeCampaigns.reduce((sum, c) => sum + c.donors, 0)} generous donors
+                            </p>
+                        </div>
                     </FadeIn>
                 </div>
             </section>

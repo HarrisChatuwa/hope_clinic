@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { CreditCard, Landmark, Smartphone, Package } from "lucide-react";
+import { CreditCard, Landmark, Smartphone, Package, Shield, Heart, Calendar, Handshake, TrendingUp, Users2 } from "lucide-react";
 
 export default function DonatePage() {
     return (
@@ -11,8 +11,8 @@ export default function DonatePage() {
                 subtitle="Your contribution saves lives. 100% of your donation goes directly to patient care and clinic operations."
                 imageSrc="/images/hero-1.jpg"
                 imageAlt="Donation Impact"
-                ctaText="Donate Online"
-                ctaLink="#online"
+                ctaText="Donate Now"
+                ctaLink="#donate"
             />
 
             <section className="py-12 md:py-24">
@@ -20,14 +20,52 @@ export default function DonatePage() {
 
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4">See Your Impact</h2>
+                        <p className="text-muted-foreground mb-8">Every dollar makes a difference in someone's life.</p>
                         <div className="grid md:grid-cols-3 gap-8 mt-8">
-                            <ImpactCard amount="$25" description="Provides one full health consultation for a patient in need." />
-                            <ImpactCard amount="$50" description="Covers five essential childhood vaccinations." />
-                            <ImpactCard amount="$100" description="Funds complete prenatal care for an expectant mother." />
+                            <ImpactCard amount="$25" description="Provides a full health consultation for one patient." />
+                            <ImpactCard amount="$50" description="Funds five childhood vaccinations." />
+                            <ImpactCard amount="$100" description="Supports prenatal care for expectant mothers." />
                         </div>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-12" id="online">
+                    {/* Ways to Give Section */}
+                    <div className="mb-16">
+                        <h2 className="text-3xl font-bold text-center mb-4">Ways to Give</h2>
+                        <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                            Choose the giving strategy that works best for you. Every contribution makes a lasting impact.
+                        </p>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <GivingStrategyCard
+                                icon={<Heart className="h-6 w-6" />}
+                                title="One-Time Gift"
+                                description="A single contribution to address immediate needs."
+                            />
+                            <GivingStrategyCard
+                                icon={<Calendar className="h-6 w-6" />}
+                                title="Monthly Sustainer Program"
+                                description="Recurring gifts that ensure our clinic remains stocked with vital supplies."
+                            />
+                            <GivingStrategyCard
+                                icon={<Package className="h-6 w-6" />}
+                                title="In-Kind Contributions"
+                                description="We accept direct donations of medicines, medical equipment, and solar panels."
+                            />
+                            <GivingStrategyCard
+                                icon={<Handshake className="h-6 w-6" />}
+                                title="Corporate Partnerships"
+                                description="Corporate matching gifts and strategic partnerships."
+                            />
+                            <GivingStrategyCard
+                                icon={<TrendingUp className="h-6 w-6" />}
+                                title="Fundraising Campaigns"
+                                description="Host a virtual run, community drive, or faith-based event to support us."
+                                className="md:col-span-2 lg:col-span-1"
+                            />
+                        </div>
+                    </div>
+
+                    <h2 className="text-3xl font-bold text-center mb-8" id="donate">How to Donate</h2>
+                    <div className="grid lg:grid-cols-2 gap-12 mb-16">
                         {/* Bank Transfer */}
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold flex items-center gap-2">
@@ -82,6 +120,16 @@ export default function DonatePage() {
 
                     </div>
 
+                    {/* Transparency Promise */}
+                    <div className="bg-primary/5 p-8 rounded-xl border-l-4 border-primary">
+                        <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                            <Shield className="h-6 w-6 text-primary" /> Our Transparency Promise
+                        </h3>
+                        <p className="text-muted-foreground">
+                            We uphold the highest standards of stewardship: <strong>Quarterly Impact Reports</strong> emailed to donors, <strong>Annual Audited Financial Statements</strong> available on our website.
+                        </p>
+                    </div>
+
                 </div>
             </section>
         </div>
@@ -93,6 +141,18 @@ function ImpactCard({ amount, description }: { amount: string, description: stri
         <div className="bg-background p-6 rounded-xl shadow-lg border-t-4 border-secondary transform hover:-translate-y-1 transition-transform">
             <div className="text-4xl font-bold text-secondary mb-3">{amount}</div>
             <p className="text-muted-foreground">{description}</p>
+        </div>
+    )
+}
+
+function GivingStrategyCard({ icon, title, description, className = "" }: { icon: React.ReactNode, title: string, description: string, className?: string }) {
+    return (
+        <div className={`bg-background p-6 rounded-xl shadow-sm border hover:border-primary/50 transition-colors ${className}`}>
+            <div className="mb-4 p-3 bg-primary/10 rounded-full w-fit text-primary">
+                {icon}
+            </div>
+            <h3 className="font-bold text-lg mb-2">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
         </div>
     )
 }

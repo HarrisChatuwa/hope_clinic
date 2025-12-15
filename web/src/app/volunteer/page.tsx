@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone } from "lucide-react";
+import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2 } from "lucide-react";
 
 export default function VolunteerPage() {
     return (
@@ -23,28 +23,40 @@ export default function VolunteerPage() {
                         <p className="text-lg text-muted-foreground mb-6">
                             Volunteering at Hope Family Clinic provides a unique opportunity to work in a challenging yet rewarding environment. You will gain hands-on experience, experience cultural exchange, and directly contribute to the well-being of the Dzaleka community.
                         </p>
-                        <h3 className="text-xl font-bold mb-4">Benefits</h3>
+                        <h3 className="text-xl font-bold mb-4">What We Provide</h3>
                         <ul className="grid sm:grid-cols-2 gap-4">
                             <BenefitItem icon={<Globe className="h-5 w-5 text-secondary" />} text="Cultural exchange activities" />
                             <BenefitItem icon={<Utensils className="h-5 w-5 text-secondary" />} text="3 meals per day & safe water" />
                             <BenefitItem icon={<Heart className="h-5 w-5 text-secondary" />} text="Shared housing near clinic" />
-                            <BenefitItem icon={<UsersIcon className="h-5 w-5 text-secondary" />} text="Community integration" />
+                            <BenefitItem icon={<CheckCircle2 className="h-5 w-5 text-secondary" />} text="On-site orientation" />
+                            <BenefitItem icon={<CheckCircle2 className="h-5 w-5 text-secondary" />} text="Certificate of service" />
                         </ul>
                     </div>
 
                     <div className="bg-muted/30 p-8 rounded-xl border">
                         <h3 className="text-2xl font-bold mb-4">Requirements</h3>
-                        <ul className="list-disc list-inside space-y-3 text-muted-foreground">
+                        <ul className="list-disc list-inside space-y-3 text-muted-foreground mb-6">
                             <li>Minimum commitment of 4 weeks.</li>
                             <li>Basic proficiency in English (Chichewa is a plus).</li>
                             <li><strong>Vaccinations:</strong> Yellow Fever, Hepatitis A/B, Tetanus.</li>
                         </ul>
+
+                        <h3 className="text-xl font-bold mb-4">Application Steps</h3>
+                        <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-6">
+                            <li>Review roles below</li>
+                            <li>Complete online form</li>
+                            <li>Submit CV and two references</li>
+                            <li>Virtual interview</li>
+                            <li>Receive welcome packet</li>
+                            <li>Arrive in Malawi</li>
+                        </ol>
+
                         <div className="mt-8">
                             <Button asChild size="lg" className="w-full">
                                 <Link href="mailto:volunteers@hopefamilyclinic.org">Send Application Email</Link>
                             </Button>
                             <p className="text-xs text-center mt-2 text-muted-foreground">
-                                Contact Volunteer Coordinator: Josephine Mhango
+                                Contact: Josephine Mhango (Volunteer Coordinator)
                             </p>
                         </div>
                     </div>
@@ -54,14 +66,41 @@ export default function VolunteerPage() {
 
             <section className="py-12 md:py-24 bg-primary/5">
                 <div className="container px-4 md:px-6 mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Available Roles</h2>
+                    <h2 className="text-3xl font-bold text-center mb-4">Available Roles</h2>
+                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                        We welcome volunteers with diverse skills and backgrounds. Find the role that matches your expertise.
+                    </p>
                     <div className="grid md:grid-cols-3 gap-6">
-                        <RoleCard title="Clinical Support" icon={<Stethoscope />} description="Assist medical staff in OPD and wards." />
-                        <RoleCard title="Health Educator" icon={<Megaphone />} description="Community outreach and public health education." />
-                        <RoleCard title="Maternal Assistant" icon={<BabyIcon />} description="Support postnatal & under-five clinics." />
-                        <RoleCard title="Logistics & Supply" icon={<PackageIcon />} description="Manage pharmacy & equipment inventory." />
-                        <RoleCard title="Admin & Fundraising" icon={<PieChartIcon />} description="Grant writing and clinic administration." />
-                        <RoleCard title="Solar & Facilities" icon={<Wrench />} description="Maintenance of solar panels and clinic facilities." />
+                        <RoleCard
+                            title="Clinical Support Volunteer"
+                            icon={<Stethoscope />}
+                            description="Assist nurses/doctors with intake and assessments."
+                        />
+                        <RoleCard
+                            title="Community Health Educator"
+                            icon={<Megaphone />}
+                            description="Lead workshops and door-to-door outreach."
+                        />
+                        <RoleCard
+                            title="Maternal & Child Health Assistant"
+                            icon={<BabyIcon />}
+                            description="Support prenatal clinics and monitor growth metrics."
+                        />
+                        <RoleCard
+                            title="Logistics & Supply Coordinator"
+                            icon={<PackageIcon />}
+                            description="Manage inventory and track supplies."
+                        />
+                        <RoleCard
+                            title="Administration & Fundraising Assistant"
+                            icon={<PieChartIcon />}
+                            description="Grant proposals and donor databases."
+                        />
+                        <RoleCard
+                            title="Solar & Facilities Volunteer"
+                            icon={<Wrench />}
+                            description="Maintain solar power equipment and clinic repairs."
+                        />
                     </div>
                 </div>
             </section>

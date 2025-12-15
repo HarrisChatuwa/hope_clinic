@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 import { CreditCard, Landmark, Smartphone, Package, Shield, Heart, Calendar, Handshake, TrendingUp } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/Animations";
+import { FAQ } from "@/components/FAQ";
 
 export default function DonatePage() {
     return (
@@ -183,6 +184,43 @@ export default function DonatePage() {
                         </div>
                     </FadeIn>
 
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-12 md:py-24 bg-muted/30">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <FadeIn>
+                        <FAQ
+                            title="Donation FAQs"
+                            items={[
+                                {
+                                    question: "How will my donation be used?",
+                                    answer: "100% of your donation goes directly to patient care and clinic operations. We provide quarterly impact reports to all donors showing exactly how funds are allocated."
+                                },
+                                {
+                                    question: "Is my donation tax-deductible?",
+                                    answer: "Yes! Hope Family Clinic Limited is a registered organization. We provide receipts for all donations that can be used for tax purposes. Please consult with your tax advisor for specific guidance."
+                                },
+                                {
+                                    question: "Can I make a recurring monthly donation?",
+                                    answer: "Absolutely! Monthly sustainer donations help us maintain consistent operations and plan for long-term impact. You can set up recurring donations through our bank transfer or contact us for automated arrangements."
+                                },
+                                {
+                                    question: "What items can I donate in-kind?",
+                                    answer: "We gratefully accept medicines, medical equipment, solar panels, and other clinic supplies. Please contact us before sending items to ensure they meet our current needs and regulatory requirements."
+                                },
+                                {
+                                    question: "How can my company get involved?",
+                                    answer: "We welcome corporate partnerships! Options include matching gift programs, employee fundraising campaigns, and strategic partnerships. Contact us to discuss how your organization can make an impact."
+                                },
+                                {
+                                    question: "Will I receive updates on my donation's impact?",
+                                    answer: "Yes! All donors receive quarterly impact reports via email, and we publish annual audited financial statements on our website. You'll see exactly how your contribution is making a difference."
+                                }
+                            ]}
+                        />
+                    </FadeIn>
                 </div>
             </section>
         </div>

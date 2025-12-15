@@ -118,8 +118,17 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-muted h-64 rounded-lg flex items-center justify-center text-muted-foreground border">
-                                Map Embed Placeholder (Google Maps)
+                            <div className="rounded-lg overflow-hidden border shadow-sm h-64">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.123456789!2d33.9!3d-13.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ4JzAwLjAiUyAzM8KwNTQnMDAuMCJF!5e0!3m2!1sen!2smw!4v1234567890"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Hope Family Clinic Location"
+                                ></iframe>
                             </div>
                         </FadeIn>
 

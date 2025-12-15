@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2, Download, Quote } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
+import { FAQ } from "@/components/FAQ";
 
 export default function VolunteerPage() {
     return (
@@ -218,6 +219,43 @@ export default function VolunteerPage() {
                             />
                         </StaggerItem>
                     </StaggerContainer>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-12 md:py-24">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <FadeIn>
+                        <FAQ
+                            title="Volunteer FAQs"
+                            items={[
+                                {
+                                    question: "How long is the minimum volunteer commitment?",
+                                    answer: "We require a minimum commitment of 4 weeks to ensure volunteers can make a meaningful impact and fully integrate into our team and community."
+                                },
+                                {
+                                    question: "Do I need medical experience to volunteer?",
+                                    answer: "Not necessarily! While we welcome medical professionals, we also have roles for non-medical volunteers in administration, logistics, community outreach, and facilities maintenance."
+                                },
+                                {
+                                    question: "What vaccinations are required?",
+                                    answer: "All volunteers must have Yellow Fever, Hepatitis A/B, and Tetanus vaccinations up to date before arrival. We recommend consulting with a travel health clinic 6-8 weeks before departure."
+                                },
+                                {
+                                    question: "Is accommodation provided?",
+                                    answer: "Yes! We provide shared housing near the clinic, along with 3 meals per day and safe drinking water."
+                                },
+                                {
+                                    question: "What is the application process timeline?",
+                                    answer: "From application submission to arrival, the process typically takes 2-3 months. This includes document review, interview, background check, and pre-departure preparations."
+                                },
+                                {
+                                    question: "Can I volunteer if I don't speak Chichewa?",
+                                    answer: "Yes! Basic proficiency in English is sufficient. However, learning some Chichewa phrases is encouraged and we provide language support during orientation."
+                                }
+                            ]}
+                        />
+                    </FadeIn>
                 </div>
             </section>
         </div>

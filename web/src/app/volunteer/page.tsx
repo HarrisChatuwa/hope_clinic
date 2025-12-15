@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2, Download, ArrowRight } from "lucide-react";
+import { Heart, Globe, Utensils, Stethoscope, Wrench, Megaphone, CheckCircle2, Download, Quote } from "lucide-react";
 
 export default function VolunteerPage() {
     return (
@@ -14,6 +14,48 @@ export default function VolunteerPage() {
                 ctaText="Download Application"
                 ctaLink="#application"
             />
+
+            {/* Volunteer Voices Section */}
+            <section className="py-12 md:py-24 bg-muted/30">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-4">Volunteer Voices</h2>
+                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                        Hear from volunteers who have made a difference at Hope Family Clinic
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <div className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-primary relative">
+                            <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/20" />
+                            <p className="text-muted-foreground italic mb-6 relative z-10">
+                                "Volunteering here transformed my perspective on global health. Every day I saw the impact of small acts—like teaching hand-washing—save lives."
+                            </p>
+                            <div className="flex items-center gap-3 pt-4 border-t">
+                                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                    E
+                                </div>
+                                <div>
+                                    <p className="font-bold">Dr. Elena R.</p>
+                                    <p className="text-sm text-muted-foreground">Clinical Support Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-background p-8 rounded-xl shadow-sm border-l-4 border-secondary relative">
+                            <Quote className="absolute top-4 right-4 h-8 w-8 text-secondary/20" />
+                            <p className="text-muted-foreground italic mb-6 relative z-10">
+                                "Working with local health educators taught me as much as I taught them. The bonds formed in Dzaleka are unforgettable."
+                            </p>
+                            <div className="flex items-center gap-3 pt-4 border-t">
+                                <div className="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold">
+                                    M
+                                </div>
+                                <div>
+                                    <p className="font-bold">Marcus K.</p>
+                                    <p className="text-sm text-muted-foreground">Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section className="py-12 md:py-24">
                 <div className="container px-4 md:px-6 mx-auto grid gap-12 lg:grid-cols-2">

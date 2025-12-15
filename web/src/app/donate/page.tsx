@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/Button";
 import Link from "next/link";
-import { CreditCard, Landmark, Smartphone, Package, Shield, Heart, Calendar, Handshake, TrendingUp, Users2 } from "lucide-react";
+import { CreditCard, Landmark, Smartphone, Package, Shield, Heart, Calendar, Handshake, TrendingUp } from "lucide-react";
 
 export default function DonatePage() {
     return (
@@ -15,16 +15,52 @@ export default function DonatePage() {
                 ctaLink="#donate"
             />
 
+            {/* Patient Story Section - Redesigned */}
+            <section className="py-12 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-8">
+                            <h2 className="text-3xl font-bold mb-2">A Life Transformed</h2>
+                            <p className="text-muted-foreground">Real stories from our community</p>
+                        </div>
+                        <div className="bg-background p-8 md:p-12 rounded-2xl shadow-xl border-l-4 border-primary relative">
+                            <div className="absolute top-6 right-6 text-primary/10 text-8xl font-serif">"</div>
+                            <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6 relative z-10">
+                                When my baby fell ill, I feared the worst. Thanks to Hope Family Clinic's newborn care program, my child received immediate treatment and is now thriving. I'm forever grateful.
+                            </p>
+                            <div className="flex items-center gap-4 pt-6 border-t">
+                                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                                    A
+                                </div>
+                                <div>
+                                    <p className="font-bold text-lg">Amina</p>
+                                    <p className="text-sm text-muted-foreground">Dzaleka Refugee Camp resident</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section className="py-12 md:py-24">
                 <div className="container px-4 md:px-6 mx-auto">
 
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold mb-4">See Your Impact</h2>
+                        <h2 className="text-3xl font-bold mb-4">Your Impact in Numbers</h2>
                         <p className="text-muted-foreground mb-8">Every dollar makes a difference in someone's life.</p>
                         <div className="grid md:grid-cols-3 gap-8 mt-8">
-                            <ImpactCard amount="$25" description="Provides a full health consultation for one patient." />
-                            <ImpactCard amount="$50" description="Funds five childhood vaccinations." />
-                            <ImpactCard amount="$100" description="Supports prenatal care for expectant mothers." />
+                            <ImpactCard
+                                amount="$25"
+                                description="Provides one full consultation, including diagnosis and basic treatment."
+                            />
+                            <ImpactCard
+                                amount="$50"
+                                description="Funds five childhood vaccinations, protecting children from life-threatening diseases."
+                            />
+                            <ImpactCard
+                                amount="$100"
+                                description="Ensures an expectant mother receives crucial prenatal care, protecting both her and her baby."
+                            />
                         </div>
                     </div>
 
